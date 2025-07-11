@@ -18,7 +18,7 @@ app.post("/chat", async (req, res) => {
 
   try {
     const chatCompletion = await openai.chat.completions.create({
-      model: "gpt-4", // Or "gpt-3.5-turbo" if you prefer
+      model: "gpt-4",
       messages: [
         {
           role: "system",
@@ -33,12 +33,13 @@ app.post("/chat", async (req, res) => {
 
     res.json({ reply: chatCompletion.choices[0].message.content });
   } catch (err) {
-    console.error(err);
+    console.error("OpenAI API error:", err);
     res.status(500).json({ error: "OpenAI request failed." });
   }
 });
 
-const PORT = process.env.PORT;
+// Use Render's dynamic port, fallback to 3000 for local testing
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`✅ Server running on port ${PORT}`);
 });
