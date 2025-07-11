@@ -10,7 +10,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 const configuration = new Configuration({
-  apiKey: "YOUR_OPENAI_API_KEY", // ⛔ Replace this with your actual key
+  apiKey: "foyamayalabelaarous9341", // ⛔ Replace this with your actual key
 });
 const openai = new OpenAIApi(configuration);
 
